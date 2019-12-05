@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @flight.date %>
+</p>
+
+<p>
+  <strong>Number of people fit:</strong>
+  <%= @flight.number_of_people_fit %>
+</p>
+
+<p>
+  <strong>Destination:</strong>
+  <%= @flight.destination %>
+</p>
+
+<%= link_to 'Edit', edit_flight_path(@flight) %> |
+<%= link_to 'Back', flights_path %> |
+
+<% if @flight.date < Date.today %>
+  <td>Flight has already departed</td>
+<% else %>
+  <% if (@flight.number_of_people_fit-@flight.people.count) > 0 %>
+    <td><%= link_to 'Add Passenger', new_flight_person_path(@flight) %></td>
+  <% else %>
+    <td>Flight is full</td>
+  <% end %>
+<% end %>
+
+<h2>People travelling on this flight</h2>
+<% @flight.people.each do |person| %>
+  <p><%= link_to person.name, flight_person_path(@flight, person) %></p>
+<% end %>
