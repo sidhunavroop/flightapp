@@ -7,7 +7,7 @@ Things you may want to cover:
 
 * Ruby version - ruby 2.5.1
 
-* Rails version - Rails 5.2.3
+* Rails version - Rails 5.2.4
 
 * git clone https://github.com/sidhunavroop/flightapp.git
 
